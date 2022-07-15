@@ -1,0 +1,26 @@
+st1=>start: start
+en1=>end: end
+op2=>operation: X = [[12, 7, 3], [4, 5, 6], [7, 8, 9]]
+op4=>operation: Y = [[5, 8, 1], [6, 7, 3], [4, 5, 9]]
+op6=>operation: result = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+cond9=>condition: for i in range(len(X))
+cond47=>condition: for j in range(len(Y[0]))
+cond65=>condition: for k in range(len(Y))
+op72=>operation: result[i][j] += (X[i][k] * Y[k][j])
+cond81=>condition: for r in result
+sub88=>subroutine: print(r)
+
+st1->op2
+sub88->en1
+op2->op4
+op4->op6
+op6->cond9
+cond9(yes)->cond47
+cond47(yes)->cond65
+cond65(yes)->op72
+op72(left)->cond65
+cond65(no)->cond47
+cond47(no)->cond9
+cond9(no)->cond81
+cond81(yes)->sub88
+sub88(left)->cond81

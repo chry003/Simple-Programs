@@ -1,0 +1,30 @@
+st1=>start: start
+en1=>end: end
+op2=>operation: a = [4, 10, 3, 2, 6]
+op4=>operation: largest = a[0]
+op6=>operation: sec_largest = a[0]
+cond9=>condition: for i in range(len(a))
+cond37(align-next=no)=>condition: if (largest < a[i])
+op41=>operation: largest = a[i]
+op43=>operation: largest_index = i
+cond49=>condition: if ((largest != a[i]) and (sec_largest < a[i]))
+op53=>operation: sec_largest = a[i]
+op60=>operation: diff = (largest - sec_largest)
+sub62=>subroutine: print(((a[:largest_index] + [sec_largest, diff]) + a[(largest_index + 1):]))
+
+st1->op2
+sub62->en1
+op2->op4
+op4->op6
+op6->cond9
+cond9(yes)->cond37
+cond37(yes, right)->op41
+op41->op43
+op43->cond49
+cond49(yes, right)->op53
+op53->cond9
+cond49(no)->cond9
+cond37(no)->cond49
+cond9(no)->op60
+op60->sub62
+

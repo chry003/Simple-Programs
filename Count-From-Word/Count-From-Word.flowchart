@@ -1,0 +1,23 @@
+st1=>start: start
+en1=>end: end
+
+op2=>operation: word = 'MISSISSIPPI'
+op4=>operation: dict = {}
+cond7=>condition: for i in word
+cond25=>condition: if (i in dict.keys())
+op29=>operation: dict[i] += 1
+op33=>operation: dict[i] = 1
+sub38=>subroutine: print(dict)
+
+st1->op2
+sub38->en1
+
+op2->op4
+op4->cond7
+cond7(yes)->cond25
+cond25(yes)->op29
+op29->cond7
+cond25(no)->op33
+op33->cond7
+cond7(no)->sub38
+

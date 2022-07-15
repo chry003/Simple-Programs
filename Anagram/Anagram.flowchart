@@ -1,0 +1,41 @@
+st1=>start: start
+op2=>operation: s1 = input('Enter first string: ')
+op4=>operation: s2 = input('Enter second string: ')
+op6=>operation: s1_lst = []
+cond9=>condition: for i in s1
+sub16=>subroutine: s1_lst.append(i)
+op20=>operation: s2_lst = []
+cond23=>condition: for i in s2
+sub30=>subroutine: s2_lst.append(i)
+cond35=>condition: for i in range((len(s1_lst) - 1), (- 1), (- 1))
+cond59=>condition: if (s1_lst[i] in s2_lst)
+op63=>operation: idx = s2_lst.index(s1_lst[i])
+sub65=>subroutine: s1_lst.pop(i)
+sub67=>subroutine: s2_lst.pop(idx)
+sub71=>subroutine: print('They are not anagrams.')
+sub73=>subroutine: break
+cond79=>condition: if ((not len(s1_lst)) and (not len(s2_lst)))
+sub83=>subroutine: print('They are anagrams.')
+en1=>end: end
+
+st1->op2
+op2->op4
+op4->op6
+op6->cond9
+cond9(yes)->sub16
+sub16(left)->cond9
+cond9(no)->op20
+op20->cond23
+cond23(yes)->sub30
+sub30(left)->cond23
+cond23(no)->cond35
+cond35(yes)->cond59
+cond59(yes)->op63
+op63->sub65
+sub65->sub67
+sub67->cond35
+cond59(no)->sub71
+sub71->sub73
+cond35(no)->cond79
+cond79(yes, right)->sub83
+sub83->en1

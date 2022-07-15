@@ -1,0 +1,23 @@
+st1=>start: start
+en1=>end: end
+op2=>operation: n = int(input('Enter a number: '))
+op4=>operation: list_of_factors = []
+cond7=>condition: for i in range(1, (n + 1))
+cond23=>condition: if ((n % i) == 0)
+sub27=>subroutine: list_of_factors.append(i)
+cond35=>condition: if ((sum(list_of_factors) - n) == n)
+sub39=>subroutine: print("It's a perfect number.")
+sub43=>subroutine: print("It's not a perfect number.")
+
+st1->op2
+sub43->en1
+op2->op4
+op4->cond7
+cond7(yes)->cond23
+cond23(yes, right)->sub27
+sub27->cond7
+cond23(no)->cond7
+cond7(no)->cond35
+cond35(yes)->sub39
+cond35(no)->sub43
+

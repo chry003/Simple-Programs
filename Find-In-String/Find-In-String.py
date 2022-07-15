@@ -1,5 +1,5 @@
 list_of_strings = ["no bun", "bug bun bug bun bug bug", "bunny bug", "buggy bug bug buggy"]
-check = "bug" # input("Enter a string: ")
+check = input("Enter a string: ")
 
 dict_of_strings = {}
 

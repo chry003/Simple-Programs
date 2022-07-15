@@ -1,0 +1,53 @@
+st1=>start: start
+en1=>end: end
+op2=>operation: list_of_strings = ['no bun', 'bug bun bug bun bug bug', 'bunny bug', 'buggy bug bug buggy']
+op4=>operation: check = 'bug'
+op6=>operation: dict_of_strings = {}
+cond9=>condition: for i in range(len(list_of_strings))
+op46=>operation: counter = 0
+cond49=>condition: for j in range(len(list_of_strings[i].split()))
+cond65=>condition: if (list_of_strings[i].split()[j] == check)
+op69=>operation: counter += 1
+op76=>operation: dict_of_strings[i] = {counter: list_of_strings[i]}
+cond81=>condition: for i in range(len(dict_of_strings))
+cond123=>condition: for j in range(i, len(dict_of_strings))
+op142=>operation: _i = list(dict_of_strings[i].keys())[0]
+op144=>operation: _j = list(dict_of_strings[j].keys())[0]
+cond147=>condition: if (_i < _j)
+op151=>operation: (dict_of_strings[i], dict_of_strings[j]) = (dict_of_strings[j], dict_of_strings[i])
+op160=>operation: list_of_strings = []
+cond163=>condition: for i in range(len(dict_of_strings))
+op172=>operation: _i = list(dict_of_strings[i].keys())[0]
+sub174=>subroutine: list_of_strings.append(dict_of_strings[i][_i])
+sub178=>subroutine: print(list_of_strings)
+
+st1->op2
+sub178->en1
+
+op2->op4
+op4->op6
+op6->cond9
+cond9(yes)->op46
+op46->cond49
+cond49(yes)->cond65
+cond65(yes, right)->op69
+op69->cond49
+cond65(no)->cond49
+cond49(no)->op76
+op76(left)->cond9
+cond9(no)->cond81
+cond81(yes)->cond123
+cond123(yes)->op142
+op142->op144
+op144->cond147
+cond147(yes, right)->op151
+op151->cond123
+cond147(no)->cond123
+cond123(no)->cond81
+cond81(no)->op160
+op160->cond163
+cond163(yes)->op172
+op172->sub174
+sub174(left)->cond163
+cond163(no)->sub178
+

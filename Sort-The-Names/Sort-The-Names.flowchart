@@ -1,0 +1,20 @@
+st1=>start: start
+en1=>end: end
+op2=>operation: list_of_names = ['kjibrish', 'yjibrish', 'fjibrish', 'zjibrish', 'ajibrish']
+cond5=>condition: for i in range(len(list_of_names))
+cond39=>condition: for j in range(i, len(list_of_names))
+cond55=>condition: if (list_of_names[i] > list_of_names[j])
+op59=>operation: (list_of_names[i], list_of_names[j]) = (list_of_names[j], list_of_names[i])
+sub68=>subroutine: print(list_of_names)
+
+st1->op2
+sub68->en1
+op2->cond5
+cond5(yes)->cond39
+cond39(yes)->cond55
+cond55(yes, right)->op59
+op59->cond39
+cond55(no)->cond39
+cond39(no)->cond5
+cond5(no)->sub68
+

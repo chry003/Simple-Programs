@@ -1,0 +1,33 @@
+st1=>start: start
+en1=>end: end
+op2=>operation: list_of_values = [10, 20, 30, 'test', 30.5, 20.2, 10.1]
+op4=>operation: list_of_ints = []
+op6=>operation: list_of_strs = []
+op8=>operation: list_of_floats = []
+cond11=>condition: for i in list_of_values
+cond47(align-next=no)=>condition: if (type(i) == int)
+sub51=>subroutine: list_of_ints.append(i)
+cond57(align-next=no)=>condition: if (type(i) == str)
+sub61=>subroutine: list_of_strs.append(i)
+cond67=>condition: if (type(i) == float)
+sub71=>subroutine: list_of_floats.append(i)
+sub78=>subroutine: print(list_of_ints, list_of_strs, list_of_floats)
+
+st1->op2
+sub78->en1
+op2->op4
+op4->op6
+op6->op8
+op8->cond11
+cond11(yes)->cond47
+cond47(yes, right)->sub51
+sub51->cond57
+cond57(yes, right)->sub61
+sub61->cond67
+cond67(yes, right)->sub71
+sub71->cond11
+cond67(no)->cond11
+cond57(no)->cond67
+cond47(no)->cond57
+cond11(no)->sub78
+

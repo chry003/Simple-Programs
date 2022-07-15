@@ -1,0 +1,35 @@
+st1=>start: start
+en1=>end: end
+op2=>operation: n = int(intput('Enter a number: '))
+op4=>operation: list_of_factors = []
+cond7=>condition: for i in range(1, (n + 1))
+cond23=>condition: if ((n % i) == 0)
+sub27=>subroutine: list_of_factors.append(i)
+cond35=>condition: for i in list_of_factors
+op80=>operation: counter = 0
+cond83=>condition: for j in range(1, (i + 1))
+cond99=>condition: if ((i % j) == 0)
+op103=>operation: counter = (counter + 1)
+cond111=>condition: if (counter == 2)
+sub115=>subroutine: print(i, 'is a prime factor of', n)
+
+st1->op2
+cond35->en1
+op2->op4
+op4->cond7
+cond7(yes)->cond23
+cond23(yes, right)->sub27
+sub27->cond7
+cond23(no)->cond7
+cond7(no)->cond35
+cond35(yes)->op80
+op80->cond83
+cond83(yes)->cond99
+cond99(yes, right)->op103
+op103->cond83
+cond99(no)->cond83
+cond83(no)->cond111
+cond111(yes, right)->sub115
+sub115->cond35
+cond111(no)->cond35
+

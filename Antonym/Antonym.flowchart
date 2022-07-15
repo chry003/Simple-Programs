@@ -1,0 +1,18 @@
+st1=>start: start
+op2=>operation: antonyms = {'Right': 'Left', 'Up': 'Down', 'Far': 'Near', 'Dumb': 'Smart'}
+sub4=>subroutine: print('[Antonyms]')
+sub6=>subroutine: print(*antonyms.keys(), sep='\n')
+op8=>operation: opt = input('Enter: ')
+cond11=>condition: if (opt not in antonyms.keys())
+sub15=>subroutine: print("Sorry we can't find antonym of", opt)
+sub19=>subroutine: print('Antonym of', opt, 'is', antonyms[opt])
+en1=>end: end
+
+st1->op2
+op2->sub4
+sub4->sub6
+sub6->op8
+op8->cond11
+cond11(yes)->sub15
+cond11(no)->sub19
+sub19->en1
